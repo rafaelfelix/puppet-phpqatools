@@ -1,0 +1,3 @@
+[submodule "modules/puppet-pear"]
+	path = modules/puppet-pear
+	url = git://github.com/treehouseagency/puppet-pear.git
