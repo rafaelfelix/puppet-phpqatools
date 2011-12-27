@@ -1,5 +1,5 @@
 # Puppet PHP PEAR Package support
-# Taken from https://raw.github.com/gist/305778/13f46dea6eba07e38778d7159644b4210ebe7bbe/pear.rb
+# Taken from https://raw.github.com/gist/1524864/1a468cb768bee75f8b3727939896806c997b59db/pear.rb
 
 require 'puppet/provider/package'
 
@@ -113,6 +113,32 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
     end
   end
 
+  def self.channelaliaslist
+    command = [command(:pearcmd), "list-channels"]
+    list = execute(command).collect do |set|
+      if channelaliashash = channelaliassplit(set)
+        channelaliashash
+      else
+        nil
+      end
+    end.reject { |p| p.nil? }
+    list
+  end
+
+  def self.channelaliassplit(desc)
+    case desc
+    when /^Registered/: return nil
+    when /^=/: return nil
+    when /^Channel/: return nil
+    when /^\s+/: return nil
+    when /^(\S+)/
+      $2
+    else
+      Puppet.warning "Could not match %s" % desc
+      nil
+    end
+  end
+
   def install(useversion = true)
 
     command = ["upgrade", "--force"]
@@ -128,7 +154,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
       end
 
       # Check if channel is available, if not, discover
-      if match and !self.class.channellist().include?(channel)
+      if match and (!self.class.channellist().include?(channel) or !self.class.channelaliaslist().include?(channel))
         execute([command(:pearcmd), "channel-discover", channel])
       end
 
