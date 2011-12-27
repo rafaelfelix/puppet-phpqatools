@@ -154,7 +154,7 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
       end
 
       # Check if channel is available, if not, discover
-      if match and (!self.class.channellist().include?(channel) or !self.class.channelaliaslist().include?(channel))
+      if match and (!self.class.channellist().include?(channel) and !self.class.channelaliaslist().include?(channel))
         execute([command(:pearcmd), "channel-discover", channel])
       end
 
