@@ -1,0 +1,29 @@
+{
+  "description": "UNKNOWN",
+  "license": "UNKNOWN",
+  "version": "0.0.1",
+  "project_page": "UNKNOWN",
+  "source": "UNKNOWN",
+  "checksums": {
+    "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
+    "manifests/params.pp": "2cbe72d7e9adf8f1cc7e2fc7b224f602",
+    "manifests/package.pp": "ebe74176445ba8e137ddfff09a693e9a",
+    "lib/puppet/provider/package/pear.rb": "c3506025aebd89203a9638a5a8861ac2",
+    "README.md": "0cd6c4dc4e36142ed12e7443e11b1021",
+    "README": "62879a8c90caa968978acb3846b90b6f",
+    "tests/init.pp": "06dc1862cfd746136b0358db67885cbd",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "metadata.json": "d34d0b70aba36510fbc2df4e667479ef",
+    "manifests/init.pp": "0b0493de3ae063ce920eeea83f9a0f2a",
+    "Modulefile": "fc37d706b672b459a6fd0da797f77104"
+  },
+  "name": "puppet-pear",
+  "types": [
+
+  ],
+  "dependencies": [
+
+  ],
+  "summary": "UNKNOWN",
+  "author": "puppet"
+}
