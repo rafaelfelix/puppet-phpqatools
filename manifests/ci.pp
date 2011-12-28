@@ -14,6 +14,7 @@ package { "php53u-pear":
 # PEAR Package
 package { "PEAR": 
 	provider => "pear",
+	ensure => latest,
 	require => Package["php53u-pear"]
 }
 
@@ -21,7 +22,7 @@ package { "PEAR":
 package { "PHPUnit":
 	provider => "pear",
 	source => "pear.phpunit.de/PHPUnit",
-	ensure => installed,
+	ensure => latest,
 	require => Package["PEAR"]
 }
 
@@ -29,7 +30,7 @@ package { "PHPUnit":
 package { "PHP_Depend":
 	provider => "pear",
 	source => "pear.pdepend.org/PHP_Depend-beta",
-	ensure => installed,
+	ensure => latest,
 	require => Package["PEAR"]
 }
 
@@ -37,7 +38,7 @@ package { "PHP_Depend":
 package { "PHP_PMD":
 	provider => "pear",
 	source => "pear.phpmd.org/PHP_PMD",
-	ensure => installed,
+	ensure => latest,
 	require => Package["PHP_Depend"]
 }
 
@@ -45,28 +46,36 @@ package { "PHP_PMD":
 package { "Base":
 	provider => "pear",
 	source => "components.ez.no/Base",
-	ensure => installed,
+	ensure => latest,
 	require => Package["PEAR"]
 }
 
 package { "ConsoleTools":
 	provider => "pear",
 	source => "components.ez.no/ConsoleTools",
-	ensure => installed,
+	ensure => latest,
 	require => Package["Base"]
 }
 
 package { "File_Iterator":
 	provider => "pear",
 	source => "pear.phpunit.de/File_Iterator",
-	ensure => installed,
+	ensure => latest,
 	require => Package["PEAR"]
 }
 
 package { "PHPCPD":
 	provider => "pear",
 	source => "pear.phpunit.de/phpcpd",
-	ensure => installed,
+	ensure => latest,
+	require => Package["Base"]
+}
+
+# PHPLOC
+package { "PHPLOC":
+	provider => "pear",
+	source => "pear.phpunit.de/phploc",
+	ensure => latest,
 	require => Package["Base"]
 }
 
@@ -74,7 +83,7 @@ package { "PHPCPD":
 package { "Phing":
 	provider => "pear",
 	source => "pear.phing.info/phing",
-	ensure => installed,
+	ensure => latest,
 	require => Package["PEAR"]
 }
 
