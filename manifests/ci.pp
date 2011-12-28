@@ -17,7 +17,15 @@ package { "PEAR":
 	require => Package["php53u-pear"]
 }
 
-# PDEPEND
+# PHPUnit
+package { "PHPUnit":
+	provider => "pear",
+	source => "pear.phpunit.de/PHPUnit",
+	ensure => installed,
+	require => Package["PEAR"]
+}
+
+# Pdepend
 package { "PHP_Depend":
 	provider => "pear",
 	source => "pear.pdepend.org/PHP_Depend-beta",
@@ -61,3 +69,12 @@ package { "PHPCPD":
 	ensure => installed,
 	require => Package["Base"]
 }
+
+# Phing
+package { "Phing":
+	provider => "pear",
+	source => "pear.phing.info/phing",
+	ensure => installed,
+	require => Package["PEAR"]
+}
+
