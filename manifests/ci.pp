@@ -79,6 +79,14 @@ package { "PHPLOC":
 	require => Package["Base"]
 }
 
+# PHPDCD
+package { "PHPDCD":
+	provider => "pear",
+	source => "pear.phpunit.de/phpdcd",
+	ensure => latest,
+	require => Package["Base"]
+}
+
 # Phing
 package { "Phing":
 	provider => "pear",
