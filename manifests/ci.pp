@@ -95,6 +95,14 @@ package { "PHP_CodeSniffer":
 	require => Package["PEAR"]
 }
 
+# Bytekit
+package { "bytekit":
+	provider => "pear",
+	source => "pear.phpunit.de/bytekit",
+	ensure => latest,
+	require => Package["File_Iterator"]
+}
+
 # Phing
 package { "Phing":
 	provider => "pear",
