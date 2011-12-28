@@ -5,6 +5,8 @@ yumrepo { "IUS":
 	gpgcheck => 0
 }
 
+## PHP Quality Tools
+
 # PHP
 package { "php53u-pear":
 	ensure => present,
@@ -111,3 +113,26 @@ package { "Phing":
 	require => Package["PEAR"]
 }
 
+## Jenkins CI Server
+
+package { "java-1.6.0-openjdk":
+	ensure => installed
+}
+
+include jenkins
+
+# Jenkins plugins
+install-jenkins-plugin {
+	"git-plugin" :
+		name => "git";
+}
+
+install-jenkins-plugin {
+	"checkstyle" :
+		name => "checkstyle";
+}
+
+install-jenkins-plugin {
+	"cobertura" :
+		name => "cobertura";
+}
