@@ -1,7 +1,7 @@
-PHP Quality Tools
+PHP Jenkins Server
 =============
 
-PHP Quality Tools is a very simple project, which aims to provide a puppet manifest to provision a CI (Continuous Integration) Server with PHP-specific tools for measuring the quality of the code.
+PHP Jenkins Server is a very simple project, which aims to provide a puppet manifest to provision a CI (Continuous Integration) Server with PHP-specific tools for measuring the quality of the code (see: http://phpqatools.org).
 
 This project also provides a Vagrantfile (see: http://vagrantup.com), so you can test the provisioning scripts from scratch in your own machine. 
 
@@ -49,4 +49,5 @@ Contributing
 Want to contribute? 
 
 - Fork me on github! 
+- Pull requests are very welcome!
 - Submit any issue you might eventually find
