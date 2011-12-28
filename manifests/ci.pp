@@ -87,6 +87,14 @@ package { "PHPDCD":
 	require => Package["Base"]
 }
 
+# PHP_CodeSniffer
+package { "PHP_CodeSniffer":
+	provider => "pear",
+	source => "pear.php.net/PHP_CodeSniffer",
+	ensure => latest,
+	require => Package["PEAR"]
+}
+
 # Phing
 package { "Phing":
 	provider => "pear",
