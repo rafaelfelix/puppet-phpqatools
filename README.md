@@ -19,13 +19,17 @@ REMEMBER: You don't actually need vagrant and virtualbox, but they're very handy
 Tools
 -------
 
-Currently, the PHP Quality Tools project is provisioning the following tools:
+Currently, the PHP Jenkins Server project is provisioning the following phpqa tools:
 
 * PHP_PMD
 * PDepend
 * PHPCPD
 * Phing
 * PHPUnit
+* PHPLOC
+* PHPDCD
+* PHP_CodeSniffer
+* Bytekit
 
 Known issues
 ------------
