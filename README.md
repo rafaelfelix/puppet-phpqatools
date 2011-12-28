@@ -3,7 +3,7 @@ PHP Quality Tools
 
 PHP Quality Tools is a very simple project, which aims to provide a puppet manifest to provision a CI (Continuous Integration) Server with PHP-specific tools for measuring the quality of the code.
 
-This project also provides a Vagrantfile (see: http://vagrantup.com), so you can test the provisioning scripts from scratch in your own machine (it uses Virtualbox).
+This project also provides a Vagrantfile (see: http://vagrantup.com), so you can test the provisioning scripts from scratch in your own machine. 
 
 Dependencies
 -------
@@ -23,8 +23,9 @@ Currently, the PHP Quality Tools project is provisioning the following tools:
 
 * PHP_PMD
 * PDepend
-
-Though I have planned to provision phpcpd, phing and phar really soon.
+* PHPCPD
+* Phing
+* PHPUnit
 
 Known issues
 ------------
