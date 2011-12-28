@@ -178,14 +178,40 @@ Puppet::Type.type(:package).provide :pear, :parent => Puppet::Provider::Package 
   end
 
   def latest
-    # This always gets the latest version available.
+    command = [command(:pearcmd), "remote-info"]
+
+    # Channel provided
+    if source = @resource[:source]
+
+      match = source.match(/^([^\/]+)(?:\/(.*))?$/)
+
+      if match
+        channel = match[1]
+        package = match[2]
+      end
+
+      # Check if channel is available, if not, discover
+      if match and !self.class.channellist().include?(channel)
+        execute([command(:pearcmd), "channel-discover", channel])
+      end
+
+      # Check if package is named in source, if not, append
+      if match and (package.nil? or package.empty?)
+        source = source + "/#{@resource[:name]}"
+      end
+
+      command << source
+    else
+      command << @resource[:name]
+    end
+
     version = ''
-    command = [command(:pearcmd), "remote-info", @resource[:name]]
-      list = execute(command).collect do |set|
+    list = execute(command).collect do |set|
       if set =~ /^Latest/
         version = set.split[1]
       end
     end
+
     return version
   end
 
