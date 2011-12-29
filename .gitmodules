@@ -4,3 +4,6 @@
 [submodule "modules/jenkins"]
 	path = modules/jenkins
 	url = git://github.com/rafaelfelix/puppet-jenkins.git
+[submodule "files/php-template"]
+	path = files/php-template
+	url = git://github.com/sebastianbergmann/php-jenkins-template.git
