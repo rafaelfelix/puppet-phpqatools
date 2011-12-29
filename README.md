@@ -1,7 +1,7 @@
 PHP QA Tools
 =============
 
-PHP QA Tools enables provisioning most of the quality tools for PHP using Puppet. Refer to http://phpqatools.org for me information.
+PHP QA Tools enables provisioning most of the quality tools for PHP using Puppet. Refer to http://phpqatools.org for more information.
 
 Dependencies
 ------------
@@ -52,7 +52,7 @@ Then:
 Known issues
 ------------
 
-	These manifest script were written to cover only CentOS 5.7 and other Redhat-based distros (it's only tested against CentOS 5.7). I would really appreciate some help to make then become more platform-indepent.
+These manifest script were written to cover only CentOS 5.7 and other Redhat-based distros (it's only tested against CentOS 5.7). I would really appreciate some help to make then become more platform-indepent.
 
 
 Contributing
