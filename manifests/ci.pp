@@ -1,117 +1,101 @@
 ## PHP Quality Tools
-class php::qatools {
-    yumrepo { "IUS":
-    	baseurl => "http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/$architecture",
-    	descr => "IUS Community repository",
-    	enabled => 1,
-    	gpgcheck => 0
-    }
+yumrepo { "IUS":
+	baseurl => "http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/$architecture",
+	descr => "IUS Community repository",
+	enabled => 1,
+	gpgcheck => 0
+}
     
-    # PHP
-    package { "php53u-pear":
-    	ensure => present,
-    	require => Yumrepo["IUS"]
-    }
+class { "pear":
+	package => "php53u-pear",
+	require => Yumrepo["IUS"],
+}
+
+class php::qatools {
     
     # PEAR Package
-    package { "PEAR": 
-    	provider => "pear",
-    	ensure => latest,
-    	require => Package["php53u-pear"]
-    }
+    pear::package { "PEAR": }
     
     # PHPUnit
-    package { "PHPUnit":
-    	provider => "pear",
-    	source => "pear.phpunit.de/PHPUnit",
-    	ensure => latest,
-    	require => Package["PEAR"]
-    }
+	pear::package { "PHPUnit":
+		version => "latest",
+		repository => "pear.phpunit.de",
+		require => Pear::Package["PEAR"],
+	}
     
     # Pdepend
-    package { "PHP_Depend":
-    	provider => "pear",
-    	source => "pear.pdepend.org/PHP_Depend-beta",
-    	ensure => latest,
-    	require => Package["PEAR"]
-    }
+    pear::package { "PHP_Depend":
+		version => "beta",
+		repository => "pear.pdepend.org",
+		require => Pear::Package["PEAR"],
+	}
     
     # PHPMD
-    package { "PHP_PMD":
-    	provider => "pear",
-    	source => "pear.phpmd.org/PHP_PMD",
-    	ensure => latest,
-    	require => Package["PHP_Depend"]
-    }
+    pear::package { "PHP_PMD":
+		version => "latest",
+		repository => "pear.phpmd.org",
+		require => Pear::Package["PHP_Depend"],
+	}
     
     # PHP CPD
-    package { "Base":
-    	provider => "pear",
-    	source => "components.ez.no/Base",
-    	ensure => latest,
-    	require => Package["PEAR"]
-    }
-    
-    package { "ConsoleTools":
-    	provider => "pear",
-    	source => "components.ez.no/ConsoleTools",
-    	ensure => latest,
-    	require => Package["Base"]
-    }
-    
-    package { "File_Iterator":
-    	provider => "pear",
-    	source => "pear.phpunit.de/File_Iterator",
-    	ensure => latest,
-    	require => Package["PEAR"]
-    }
-    
-    package { "PHPCPD":
-    	provider => "pear",
-    	source => "pear.phpunit.de/phpcpd",
-    	ensure => latest,
-    	require => Package["Base"]
-    }
-    
+    pear::package { "Base":
+		version => "latest",
+		repository => "components.ez.no",
+		require => Pear::Package["PEAR"],
+	}
+
+    pear::package { "ConsoleTools":
+		version => "latest",
+		repository => "components.ez.no",
+		require => Pear::Package["Base"],
+	}
+
+    pear::package { "File_Iterator":
+		version => "latest",
+		repository => "pear.phpunit.de",
+		require => Pear::Package["PEAR"],
+	}
+
+    pear::package { "phpcpd":
+		version => "latest",
+		repository => "pear.phpunit.de",
+		require => Pear::Package["Base"],
+	}
+
     # PHPLOC
-    package { "PHPLOC":
-    	provider => "pear",
-    	source => "pear.phpunit.de/phploc",
-    	ensure => latest,
-    	require => Package["Base"]
-    }
-    
+    pear::package { "phploc":
+		version => "latest",
+		repository => "pear.phpunit.de",
+		require => Pear::Package["Base"],
+	}
+
     # PHPDCD
-    package { "PHPDCD":
-    	provider => "pear",
-    	source => "pear.phpunit.de/phpdcd",
-    	ensure => latest,
-    	require => Package["Base"]
-    }
+    pear::package { "phpdcd":
+		version => "latest",
+		repository => "pear.phpunit.de",
+		require => Pear::Package["Base"],
+	}
     
     # PHP_CodeSniffer
-    package { "PHP_CodeSniffer":
-    	provider => "pear",
-    	source => "pear.php.net/PHP_CodeSniffer",
-    	ensure => latest,
-    	require => Package["PEAR"]
-    }
+    pear::package { "PHP_CodeSniffer":
+		version => "latest",
+		repository => "pear.php.net",
+		require => Pear::Package["PEAR"],
+	}
     
     # Bytekit
-    package { "bytekit":
-    	provider => "pear",
-    	source => "pear.phpunit.de/bytekit",
-    	ensure => latest,
-    	require => Package["File_Iterator"]
-    }
+    pear::package { "bytekit":
+		version => "latest",
+		repository => "pear.phpunit.de",
+		require => Pear::Package["File_Iterator"],
+	}
     
     # Phing
-    package { "Phing":
-    	provider => "pear",
-    	source => "pear.phing.info/phing",
-    	ensure => latest,
-    	require => Package["PEAR"]
-    }
+    pear::package { "Phing":
+		version => "latest",
+		repository => "pear.phing.info",
+		require => Pear::Package["PEAR"],
+	}
 }
 
 ## Jenkins CI Server
