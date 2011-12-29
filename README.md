@@ -1,7 +1,7 @@
-PHP Jenkins Server
+PHP QA Tools
 =============
 
-PHP Jenkins Server is a very simple project, which aims to provide a puppet manifest to provision a CI (Continuous Integration) Server with PHP-specific tools for measuring the quality of the code (see: http://phpqatools.org).
+PHP QA Tools enables provisioning most of the quality tools for PHP using Puppet. Refer to http://phpqatools.org for me information.
 
 This project also provides a Vagrantfile (see: http://vagrantup.com), so you can test the provisioning scripts from scratch in your own machine. 
 
@@ -19,7 +19,7 @@ REMEMBER: You don't actually need vagrant and virtualbox, but they're very handy
 Tools
 -------
 
-Currently, the PHP Jenkins Server project is provisioning the following phpqa tools:
+Currently, the PHP QA Tools project is provisioning the following tools:
 
 * PHP_PMD
 * PDepend
@@ -34,7 +34,7 @@ Currently, the PHP Jenkins Server project is provisioning the following phpqa to
 Known issues
 ------------
 
-These manifest script were written to cover only CentOS 5.7. I would really appreciate some help to make then become more platform-indepent.
+These manifest script were written to cover only CentOS 5.7 and other Redhat-based distros (it's only tested against CentOS 5.7). I would really appreciate some help to make then become more platform-indepent.
 
 Usage
 -----
@@ -50,7 +50,7 @@ Or, provisioning any other kind of machine (from the project root dir):
 Contributing
 ------------
 
-Want to contribute? 
+Want to contribute?
 
 - Fork me on github! 
 - Pull requests are very welcome!
