@@ -7,4 +7,4 @@ description 'Manage PHP QA Tools (http://phpqatools.org) using Puppet'
 project_page 'https://github.com/rafaelfelix/puppet-phpqatools'
 
 ## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
+dependency 'rafaelfc/pear', '>= 1.0.0'
