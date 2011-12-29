@@ -1,3 +1,0 @@
-package {  "phpmd":
-	provider => "pear"
-}
