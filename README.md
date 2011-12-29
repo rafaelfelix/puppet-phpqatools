@@ -6,7 +6,7 @@ PHP QA Tools enables provisioning most of the quality tools for PHP using Puppet
 This project also provides a Vagrantfile (see: http://vagrantup.com), so you can test the provisioning scripts from scratch in your own machine. 
 
 Dependencies
--------
+------------
 
 - Ruby (tested against 1.8 version)
 - Rubygems
@@ -17,7 +17,7 @@ Dependencies
 REMEMBER: You don't actually need vagrant and virtualbox, but they're very handy tools to make a quick test on your own machine before committing, and risking to break the build due to environment issues. 
 
 Tools
--------
+-----
 
 Currently, the PHP QA Tools project is provisioning the following tools:
 
@@ -31,21 +31,35 @@ Currently, the PHP QA Tools project is provisioning the following tools:
 * PHP_CodeSniffer
 * Bytekit
 
-Known issues
+Installation
 ------------
 
-These manifest script were written to cover only CentOS 5.7 and other Redhat-based distros (it's only tested against CentOS 5.7). I would really appreciate some help to make then become more platform-indepent.
+From the command line:
+
+    $ puppet-module install rafaelfc/phpqatools
+
+It will download and install the latest release from the official Puppet Modules Repository, under the `phpqatools` directory.
 
 Usage
 -----
 
-Provisioning a VM using Vagrant:
+Inside of a puppet manifest file (let's call it `init.pp`):
 
-    vagrant up ci_server
+```puppet
+include phpqatools
+```
 
-Or, provisioning any other kind of machine (from the project root dir):
+Then:
 
-    puppet apply manifests/ci.pp --modulepath modules/
+	$ puppet apply init.pp
+	
+That should do the job.
+
+Known issues
+------------
+
+	These manifest script were written to cover only CentOS 5.7 and other Redhat-based distros (it's only tested against CentOS 5.7). I would really appreciate some help to make then become more platform-indepent.
+
 
 Contributing
 ------------
