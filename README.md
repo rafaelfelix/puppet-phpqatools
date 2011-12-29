@@ -55,6 +55,14 @@ Then:
 	
 That should do the job.
 
+Testing
+_______
+
+Just run the tests/init.pp on a sample machine to test the module.
+Although you can use Vagrant to do the testing in a very simple way:
+
+	$ vagrant up test
+
 Known issues
 ------------
 
