@@ -105,7 +105,7 @@ class phpqatools {
 
 	pear::package { "phpDox":
 		version => 'latest',
-		repository => "pear.netpirates.net/phpDox"
+		repository => "pear.netpirates.net"
 	}
-	
+
 }
