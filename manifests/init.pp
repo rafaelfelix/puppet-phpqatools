@@ -7,6 +7,7 @@
 # Actions:
 #
 # Requires:
+# - pear
 #
 # Sample Usage:
 #
@@ -14,17 +15,9 @@
 class phpqatools {
 	include pear
 
-	yumrepo { "IUS":
-		baseurl => "http://dl.iuscommunity.org/pub/ius/stable/Redhat/5/$architecture",
-		descr => "IUS Community repository",
-		enabled => 1,
-		gpgcheck => 0
-	}
-
-	class { "pear":
-		package => "php53u-pear",
-		require => Yumrepo["IUS"],
-	}
+	if $operatingsystem == 'redhat' {
+		include phpqatools::redhat
+    }
 
 	# PEAR Package
 	pear::package { "PEAR": }
@@ -109,4 +102,10 @@ class phpqatools {
 		repository => "pear.phing.info",
 		require => Pear::Package["PEAR"],
 	}
+
+	pear::package { "phpDox":
+		version => 'latest',
+		repository => "pear.netpirates.net"
+	}
+
 }
