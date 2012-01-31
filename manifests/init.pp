@@ -102,4 +102,10 @@ class phpqatools {
 		repository => "pear.phing.info",
 		require => Pear::Package["PEAR"],
 	}
+
+	pear::package { "phpDox":
+		version => 'latest',
+		repository => "pear.netpirates.net/phpDox"
+	}
+	
 }
