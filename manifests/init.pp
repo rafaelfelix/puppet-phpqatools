@@ -62,10 +62,17 @@ class phpqatools {
 		require => Pear::Package["PEAR"],
 	}
 
+	# First install finder dependency
+	pear::package { "Finder":
+		version		=> "latest",
+		repository	=> "pear.symfony.com",
+		require => Pear::Package["Base"],
+	}
+
 	pear::package { "phpcpd":
 		version => "latest",
 		repository => "pear.phpunit.de",
-		require => Pear::Package["Base"],
+		require => Pear::Package["Finder"],
 	}
 
 	# PHPLOC
@@ -76,6 +83,7 @@ class phpqatools {
 	}
 
 	# PHPDCD
+	
 	pear::package { "phpdcd":
 		version => "latest",
 		repository => "pear.phpunit.de",
