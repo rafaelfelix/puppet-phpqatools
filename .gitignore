@@ -2,3 +2,5 @@
 .vagrant
 metadata.json
 pkg/*
+~*
+
