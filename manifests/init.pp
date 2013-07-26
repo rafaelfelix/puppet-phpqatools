@@ -12,7 +12,10 @@
 # Sample Usage:
 #
 # [Remember: No empty lines between comments and class definition]
-class phpqatools {
+class phpqatools (
+	$standard_hash = {},
+	$default_standard = undef,
+) {
 	include pear
 
 	# PEAR Package
@@ -111,4 +114,19 @@ class phpqatools {
 		repository => "pear.netpirates.net"
 	}
 
+	pear::package { "PhpDocumentor":
+		version => 'latest',
+		repository => "pear.php.net",
+	}
+
+	# install addtional codeing standards
+	create_resources('vcsrepo', $standard_hash)
+   
+	if defined($default_standard) {
+	  exec {"phpcs --config-set default_standard ${default_standard}":
+		cwd => '/tmp',
+		path => ['/usr/bin'],
+		creates => '/usr/share/pear/data/PHP_CodeSniffer/CodeSniffer.conf'
+	  }
+	}
 }
