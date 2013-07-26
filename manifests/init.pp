@@ -90,7 +90,7 @@ class phpqatools (
 
 	# PHP_CodeSniffer
 	pear::package { "PHP_CodeSniffer":
-		version => "latest",
+		version => "1.4.6",
 		repository => "pear.php.net",
 		require => Pear::Package["PEAR"],
 	}
@@ -104,7 +104,7 @@ class phpqatools (
 
 	# Phing
 	pear::package { "Phing":
-		version => "latest",
+		version => "2.5.0",
 		repository => "pear.phing.info",
 		require => Pear::Package["PEAR"],
 	}
@@ -115,7 +115,7 @@ class phpqatools (
 	}
 
 	pear::package { "PhpDocumentor":
-		version => 'latest',
+		version => '1.4.4',
 		repository => "pear.php.net",
 	}
 
