@@ -30,7 +30,7 @@ Installation
 
 From the command line:
 
-    $ puppet-module install rafaelfc/phpqatools
+    $ puppet module install rafaelfc/phpqatools
 
 It will download and install the latest release from the official Puppet Modules Repository, under the `phpqatools` directory.
 Watch for the dependency listed in the Modulefile (`rafaelfc/pear`), in case you run into `can't find class pear` errors.
@@ -50,7 +50,7 @@ Then:
 Known issues
 ------------
 
-These manifest script were written to cover only CentOS 5.7 and other Redhat-based distros (it's only tested against CentOS 5.7). I would really appreciate some help to make then become more platform-indepent.
+This module was written to cover only CentOS and Redhat distros (it's tested against CentOS 5.9 and CentOS 6.4). I would really appreciate some help to make it more platform-indepent.
 
 Contributing
 ------------
