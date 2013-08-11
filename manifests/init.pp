@@ -15,10 +15,6 @@
 class phpqatools {
 	include pear
 
-	if $operatingsystem == 'redhat' {
-		include phpqatools::redhat
-    }
-
 	# PEAR Package
 	pear::package { "PEAR": }
 
@@ -83,7 +79,6 @@ class phpqatools {
 	}
 
 	# PHPDCD
-	
 	pear::package { "phpdcd":
 		version => "latest",
 		repository => "pear.phpunit.de",
