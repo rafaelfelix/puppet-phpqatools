@@ -119,7 +119,7 @@ class phpqatools (
 		repository => "pear.php.net",
 	}
 
-	# install addtional codeing standards
+	# install additional coding standards
 	create_resources('vcsrepo', $standard_hash)
    
 	if defined($default_standard) {
