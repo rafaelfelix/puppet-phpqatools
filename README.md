@@ -51,7 +51,7 @@ Then:
 Using Hiera with additional coding standard:
 
     classes:
- 	- phpqatools
+        - phpqatools
         - git
     phpqatools::standard_hash:
         '/usr/share/pear/PHP/CodeSniffer/Standards/Symfony2':
