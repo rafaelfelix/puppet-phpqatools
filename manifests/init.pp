@@ -122,7 +122,7 @@ class phpqatools (
 	# install additional coding standards
 	create_resources('vcsrepo', $standard_hash)
    
-	if defined($default_standard) {
+	if $default_standard != undef {
 	  exec {"phpcs --config-set default_standard ${default_standard}":
 		cwd => '/tmp',
 		path => ['/usr/bin'],
