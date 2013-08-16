@@ -1,5 +1,5 @@
 name    'rafaelfc-phpqatools'
-version '1.0.1'
+version '1.1.0'
 source 'git://github.com/rafaelfelix/puppet-phpqatools.git'
 author 'Rafael Felix Correa'
 license 'MIT'
