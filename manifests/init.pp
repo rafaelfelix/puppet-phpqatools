@@ -12,7 +12,10 @@
 # Sample Usage:
 #
 # [Remember: No empty lines between comments and class definition]
-class phpqatools {
+class phpqatools (
+	$standard_hash = {},
+	$default_standard = undef,
+) {
 	include pear
 
 	# PEAR Package
@@ -87,7 +90,7 @@ class phpqatools {
 
 	# PHP_CodeSniffer
 	pear::package { "PHP_CodeSniffer":
-		version => "latest",
+		version => "1.4.6",
 		repository => "pear.php.net",
 		require => Pear::Package["PEAR"],
 	}
@@ -101,7 +104,7 @@ class phpqatools {
 
 	# Phing
 	pear::package { "Phing":
-		version => "latest",
+		version => "2.5.0",
 		repository => "pear.phing.info",
 		require => Pear::Package["PEAR"],
 	}
@@ -111,4 +114,19 @@ class phpqatools {
 		repository => "pear.netpirates.net"
 	}
 
+	pear::package { "PhpDocumentor":
+		version => '1.4.4',
+		repository => "pear.php.net",
+	}
+
+	# install additional coding standards
+	create_resources('vcsrepo', $standard_hash)
+   
+	if $default_standard != undef {
+	  exec {"phpcs --config-set default_standard ${default_standard}":
+		cwd => '/tmp',
+		path => ['/usr/bin'],
+		creates => '/usr/share/pear/data/PHP_CodeSniffer/CodeSniffer.conf'
+	  }
+	}
 }
