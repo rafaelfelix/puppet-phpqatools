@@ -30,7 +30,7 @@ class phpqatools (
 
 	# Pdepend
 	pear::package { "PHP_Depend":
-		version => "beta",
+		version => "latest",
 		repository => "pear.pdepend.org",
 		require => Pear::Package["PEAR"],
 	}
@@ -103,8 +103,8 @@ class phpqatools (
 	}
 
 	# Phing
-	pear::package { "Phing":
-		version => "2.5.0",
+	pear::package { "phing":
+		version => "latest",
 		repository => "pear.phing.info",
 		require => Pear::Package["PEAR"],
 	}
