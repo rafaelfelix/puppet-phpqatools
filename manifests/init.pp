@@ -90,7 +90,7 @@ class phpqatools (
 
 	# PHP_CodeSniffer
 	pear::package { "PHP_CodeSniffer":
-		version => "1.4.6",
+		version => "latest",
 		repository => "pear.php.net",
 		require => Pear::Package["PEAR"],
 	}
